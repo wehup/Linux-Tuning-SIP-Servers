@@ -189,6 +189,9 @@ kernel.randomize_va_space=2
 
 # Reboot the machine soon after a kernel panic.
 kernel.panic=10
+
+# Let’s just increase it. Recommended size: CONNTRACK_MAX = RAMSIZE (in bytes) / 16384 / (ARCH / 32). Eg, I have 8GB RAM in x86_64 OS, so I made it as 8*1024^3/16384/2=262144, which is of course larger as the /proc/sys/net/netfilter/nf_conntrack_count
+net.netfilter.nf_conntrack_max=131072
 ```
 
 And this is the **/etc/security/limits.conf** :
